@@ -1,0 +1,19 @@
+{% macro header() %}
+<header class="header">
+        <a href="{{ url_for('pages.index') }}" class="header__logo">
+            <span class="logo__name">Note</span>
+        </a>
+
+        <div class="search__box">
+            <input type="search" class="search__input" placeholder="Type to search">
+            <button class="search__button">
+                <img src="{{ url_for('static', filename='images/search.svg') }}" alt="" width="100">
+            </button>    
+        </div>
+
+        <div class="nav__links">
+            <a href="#" class="nav__link">register</a>
+            <a href="#" class="nav__link">login</a>
+        </div>
+</header>
+{% endmacro %}

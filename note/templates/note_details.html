@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block main_content %}
+    <div class="note__head">
+        <h1 class="title">{{ note.title }}</h1>
+        <h5 class="date">{{ note.date }}</h5>
+        <a href="{{ url_for('pages.edit_note', _id=note._id) }}">edit</a>
+    </div>
+    <h3 class="content">{{ note.content }}</h3>
+{% endblock %}

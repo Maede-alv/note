@@ -1,0 +1,2 @@
+FLASK_APP=note
+FLASK_DEBUG=True
