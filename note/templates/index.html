@@ -3,13 +3,15 @@
 {% if notes %}
     <div class="notes">
         {% for note in notes %}
-            <a class="note" href="{{ url_for('pages.note', _id=note._id) }}">
+            <div class="note">
                 <div class="title_date">
+                    <a href="{{ url_for('pages.note', _id=note._id) }}" class="note__link"></a>
                     <h1 class="note__title">{{ note.title }}</h1>
                     <h3 class="note__date">{{ note.date }}</h3>
+                    <a href="{{ url_for('pages.remove_note', _id=note._id) }}" class="note__remove">remove</a>
                 </div>
                 <div class="note__content">{{ note.content }}</div>
-            </a>
+            </div>
         {% endfor %}
     </div>
 {% endif %}

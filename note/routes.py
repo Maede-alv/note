@@ -22,9 +22,9 @@ def index():
 def add_note():
     if request.method == "POST":
         note = Note(
-            _id = uuid.uuid4().hex,
+            _id = uuid.uuid1().hex,
             title = request.form.get("title"),
-            date = datetime.datetime.today(),
+            date = datetime.datetime.today().strftime("%Y-%m-%d"),
             content = request.form.get("content")
         )
         current_app.db.note.insert_one(asdict(note))
@@ -51,11 +51,16 @@ def edit_note(_id: str):
     
     if request.method == "POST":
         note.title = request.form.get("title")
-        note.date = datetime.datetime.today()
+        note.date = datetime.datetime.today().strftime("%Y-%m-%d")
         note.content = request.form.get("content")
         
         current_app.db.note.update_one({'_id': _id}, {'$set': asdict(note)})
         
         return redirect(url_for(".note", _id=_id))
     
-    return render_template("new_note.html", note=note)
+    return render_template("edit_note.html", note=note)
+
+@pages.get("/remove/<string:_id>")
+def remove_note(_id: str):
+    current_app.db.note.delete_one({'_id': _id})
+    return redirect(url_for(".index"))

@@ -16,6 +16,7 @@
   background-color: transparent;
   backdrop-filter: blur(15px);
   height: 70px;
+  margin-bottom: 30px;
 }
 
 .header__logo {
@@ -23,6 +24,12 @@
   color: inherit;
   font-size: 40px;
   color: rgb(255, 234, 0);
+}
+
+.search__box {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .search__box input {
@@ -40,10 +47,14 @@
   padding-left: 40px; */
 }
 
-.search__box button {
+.search__box .search__button {
     width: 45px;
     height: 45px;
-    /* background-image: url(../images/search.svg); */
+    background-color: rgb(255, 234, 0);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(255, 234, 0, 0.326);
 }
 
 .notes {
@@ -51,9 +62,11 @@
   width: 100%;
   gap: 10px;
   flex-wrap: wrap;
+  padding: 10px;
 }
 
 .note {
+  position: relative;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +74,25 @@
   color: white;
   border-radius: 10px;
   background-color: blueviolet;
+  width: 400px;
+}
+
+.note__link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.note__remove {
+  z-index: 99;
+  color: skyblue;
+  text-decoration: none;
+}
+
+.note__content {
+  text-wrap: wrap;
 }
 
 .title_date {
